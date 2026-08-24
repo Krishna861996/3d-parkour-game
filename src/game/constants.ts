@@ -1,0 +1,192 @@
+import { LevelConfig, GameTheme } from '../types';
+
+export interface ThemeColors {
+  name: string;
+  skyTop: string;
+  skyBottom: string;
+  fogColor: string;
+  groundPrimary: number;
+  groundAccent: number;
+  wallColor: number;
+  obstacleColor: number;
+  hazardColor: number;
+  boostColor: number;
+  checkpointGlow: number;
+  lightPrimary: number;
+  lightAmbient: number;
+  gridLineColor: number;
+}
+
+export const THEMES: Record<GameTheme, ThemeColors> = {
+  cyberpunk: {
+    name: 'Cyberpunk Neon',
+    skyTop: '#090514',
+    skyBottom: '#1a0933',
+    fogColor: '#120726',
+    groundPrimary: 0x121324,
+    groundAccent: 0x00f3ff,
+    wallColor: 0x181938,
+    obstacleColor: 0xff0055,
+    hazardColor: 0xff003c,
+    boostColor: 0x00ff88,
+    checkpointGlow: 0x00f3ff,
+    lightPrimary: 0x00f3ff,
+    lightAmbient: 0x3d1b63,
+    gridLineColor: 0x242852,
+  },
+  sunset: {
+    name: 'Sunset Rooftops',
+    skyTop: '#1b1035',
+    skyBottom: '#8c2d48',
+    fogColor: '#451630',
+    groundPrimary: 0x221c2e,
+    groundAccent: 0xff7b00,
+    wallColor: 0x362744,
+    obstacleColor: 0xff3b5c,
+    hazardColor: 0xff1e42,
+    boostColor: 0xffd000,
+    checkpointGlow: 0xff8c00,
+    lightPrimary: 0xffa040,
+    lightAmbient: 0x4a1836,
+    gridLineColor: 0x473359,
+  },
+  vaporwave: {
+    name: 'Neon Horizon',
+    skyTop: '#05021a',
+    skyBottom: '#38004d',
+    fogColor: '#200533',
+    groundPrimary: 0x15092a,
+    groundAccent: 0xff00bb,
+    wallColor: 0x240d42,
+    obstacleColor: 0x00ffff,
+    hazardColor: 0xff005b,
+    boostColor: 0x00ffaa,
+    checkpointGlow: 0xff00cc,
+    lightPrimary: 0xff00bb,
+    lightAmbient: 0x2f0e47,
+    gridLineColor: 0x411e69,
+  },
+  emerald: {
+    name: 'Matrix Emerald',
+    skyTop: '#020d07',
+    skyBottom: '#072415',
+    fogColor: '#05170d',
+    groundPrimary: 0x0b1710,
+    groundAccent: 0x00ff66,
+    wallColor: 0x11291b,
+    obstacleColor: 0x38ef7d,
+    hazardColor: 0xff3333,
+    boostColor: 0x00ffcc,
+    checkpointGlow: 0x00ff88,
+    lightPrimary: 0x00ff88,
+    lightAmbient: 0x0a331c,
+    gridLineColor: 0x144026,
+  },
+  scifi: {
+    name: 'Quantum Skyway',
+    skyTop: '#030b1e',
+    skyBottom: '#0e2b5c',
+    fogColor: '#0b1d3d',
+    groundPrimary: 0x101b2b,
+    groundAccent: 0x38bdf8,
+    wallColor: 0x1b2d45,
+    obstacleColor: 0x818cf8,
+    hazardColor: 0xf43f5e,
+    boostColor: 0x22d3ee,
+    checkpointGlow: 0x38bdf8,
+    lightPrimary: 0x60a5fa,
+    lightAmbient: 0x172554,
+    gridLineColor: 0x253d61,
+  },
+};
+
+export const PRESET_LEVELS: LevelConfig[] = [
+  {
+    id: 'lvl_1',
+    name: '1. Rooftop Tutorial',
+    seed: 101,
+    difficulty: 'easy',
+    theme: 'cyberpunk',
+    segmentCount: 7,
+    description: 'Learn sprinting, jumping, sliding under obstacles, and wall running along illuminated vertical panels.',
+    authorTimeSeconds: 24.5,
+    goldTimeSeconds: 28.0,
+    silverTimeSeconds: 35.0,
+  },
+  {
+    id: 'lvl_2',
+    name: '2. Neon Alleyways',
+    seed: 202,
+    difficulty: 'easy',
+    theme: 'sunset',
+    segmentCount: 10,
+    description: 'High-speed wall-chaining and jump pad navigation across sunset rooftop gaps.',
+    authorTimeSeconds: 32.0,
+    goldTimeSeconds: 38.0,
+    silverTimeSeconds: 48.0,
+  },
+  {
+    id: 'lvl_3',
+    name: '3. Hazard Matrix',
+    seed: 303,
+    difficulty: 'medium',
+    theme: 'emerald',
+    segmentCount: 14,
+    description: 'Moving laser barriers, oscillating platforms, and tight air-dash timing across quantum chasms.',
+    authorTimeSeconds: 42.0,
+    goldTimeSeconds: 50.0,
+    silverTimeSeconds: 65.0,
+  },
+  {
+    id: 'lvl_4',
+    name: '4. Vaporwave Spire',
+    seed: 404,
+    difficulty: 'hard',
+    theme: 'vaporwave',
+    segmentCount: 18,
+    description: 'Double-jump precision, speed-boost rings, and high verticality obstacle climbing.',
+    authorTimeSeconds: 52.0,
+    goldTimeSeconds: 62.0,
+    silverTimeSeconds: 80.0,
+  },
+  {
+    id: 'lvl_5',
+    name: '5. Apex Ascension',
+    seed: 505,
+    difficulty: 'insane',
+    theme: 'scifi',
+    segmentCount: 24,
+    description: 'The ultimate parkour gauntlet featuring all mechanics pushed to the extreme.',
+    authorTimeSeconds: 68.0,
+    goldTimeSeconds: 82.0,
+    silverTimeSeconds: 110.0,
+  },
+];
+
+export const PHYSICS_CONFIG = {
+  GRAVITY: -28.0,
+  WALLRUN_GRAVITY: -7.5,
+  WALK_SPEED: 11.0,
+  SPRINT_SPEED: 16.5,
+  SLIDE_BOOST_SPEED: 22.0,
+  MAX_AIR_SPEED: 20.0,
+  ACCELERATION: 65.0,
+  DECELERATION: 40.0,
+  AIR_ACCELERATION: 18.0,
+  JUMP_FORCE: 11.5,
+  DOUBLE_JUMP_FORCE: 10.0,
+  WALL_JUMP_VERTICAL: 10.5,
+  WALL_JUMP_HORIZONTAL: 13.0,
+  WALLRUN_SPEED: 18.0,
+  DASH_FORCE: 28.0,
+  DASH_DURATION: 0.22,
+  DASH_COOLDOWN: 1.2,
+  BOUNCE_PAD_FORCE: 24.0,
+  BOOST_RING_FORCE: 32.0,
+  MANTLE_PULL_SPEED: 9.0,
+  SLIDE_DURATION_MAX: 0.9,
+  PLAYER_HEIGHT_STAND: 1.8,
+  PLAYER_HEIGHT_SLIDE: 0.85,
+  PLAYER_RADIUS: 0.45,
+  VOID_FALL_LIMIT: -25.0,
+};

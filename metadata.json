@@ -1,0 +1,6 @@
+{
+  "name": "3D Parkour Runner",
+  "description": "A high-speed 3D parkour game with smooth movement mechanics (wall running, sliding, dashing, vaulting) and procedurally generated obstacle courses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
